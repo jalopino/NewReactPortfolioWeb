@@ -1,0 +1,24 @@
+.mobilenav {
+    animation: open 0.2s ease-in-out;
+}
+
+.mobilenavclose {
+    transform: translateX(12rem);
+    animation: close 0.2s ease-in-out 1;
+}
+
+@keyframes open {
+        from {
+            transform: translateX(12rem);
+        } to {
+            transform: translateX(0rem);
+        }
+}
+
+@keyframes close {
+    from {
+        transform: translateX(0rem);
+    } to {
+        transform: translateX(12rem);
+    }
+}
