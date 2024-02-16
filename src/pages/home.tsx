@@ -11,6 +11,8 @@ import NODE from "../assets/nodejs.svg"
 import PHP from "../assets/php.svg"
 import REACT from "../assets/react.svg"
 import PH from "../assets/philippines.svg"
+import GRAD from "../assets/grad.svg"
+import LAPTOP from "../assets/laptop.png"
 
 const Home = () => {
     return(
@@ -23,7 +25,7 @@ const Home = () => {
                                 <img src={Profile} alt="" 
                                 className="transition absolute top-[-10rem] right-10 h-[10rem] rotate-[21deg] z-0 hover:scale-110"/>
                             </button>
-                            <img src={Plane} alt="" className="absolute rotate-90 z-0 top-[18rem] right-[5rem] h-[9rem]"/>
+                            <img src={Plane} alt="" className="absolute rotate-90 z-0 top-[18rem] right-[8rem] h-[9rem]"/>
                         </div>
                     </div>
                     <div className="font-[Thasadith] font-black text-4xl text-[#93DEFF] z-10 animate-bounce">a junior web developer.</div>
@@ -42,7 +44,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="flex flex-row w-[100%] mx-auto justify-center items-center gap-[3rem] text-center font-[Thasadith] font-black text-lg text-[#F7F7F7] z-10">
-                        Currently focusing on React, Express/Node JS, MongoDB
+                        Currently focusing on React, Express/Node JS, and MongoDB
                     </div>
                     <div className="flex flex-row w-[100%] mx-auto justify-center items-center gap-[3rem] text-center font-[gabarito] font-bold text-2xl text-[#F7F7F7] z-10 mt-10">
                         Stacks I used for previous projects:
@@ -68,10 +70,27 @@ const Home = () => {
                     </div>
                     <div className="flex flex-row justify-center items-center text-start">
                         <div className="font-[Thasadith] text-[#606470] font-semibold text-xl">
-                            Born and raised in the Philippines, I was always fascinated with computers at a young age!
+                            Born and raised in the Philippines, I was always fascinated with computers at a young age.
                         </div>
                         <div>
-                            <img src={PH} alt="" className="animate-pulse"/>
+                            <img src={PH} alt=""/>
+                        </div>
+                    </div>
+                    <div className="flex flex-row justify-center items-center text-start gap-[3rem]">
+                        <div>
+                            <img src={GRAD} alt=""/>
+                        </div>
+                        <div className="font-[Thasadith] text-[#606470] font-semibold text-xl">
+                            Which ultimately led me to persue a bachelor's degree in Information Technology!
+                        </div>
+                    </div>
+                    <div className="flex flex-row justify-center items-center text-start gap-[3rem]">
+                        <div className="font-[Thasadith] text-[#606470] font-semibold text-xl">
+                            I always keep up with new upcoming tech 
+                            trends to keep myself updated in best practices.
+                        </div>
+                        <div>
+                            <img src={LAPTOP} alt="" className="w-[60rem]"/>
                         </div>
                     </div>
                 </div>

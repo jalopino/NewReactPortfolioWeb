@@ -1,0 +1,26 @@
+.carousel-anim {
+    animation: carousel 0.8s ease-in-out;
+}
+
+.carousel-reverse {
+    animation: carousel-reverse 0.8s ease-in-out;
+}
+
+.clip {
+    contain: paint;
+}
+
+@keyframes carousel-reverse {
+    from {
+        transform: translateX(-30rem);
+    } to {
+        transform: translateX(0rem);
+    }
+}
+@keyframes carousel {
+    from {
+        transform: translateX(30rem);
+    } to {
+        transform: translateX(0rem);
+    }
+}

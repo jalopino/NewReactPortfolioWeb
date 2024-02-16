@@ -1,8 +1,9 @@
 import React, { useEffect } from "react"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import "../styles/nav.css"
 
 const Logo = '<Paolo/>'
+
 const Nav = () => {
     const [openBar, setOpenBar] = useState(false)
     const startUp = 'invisible'
