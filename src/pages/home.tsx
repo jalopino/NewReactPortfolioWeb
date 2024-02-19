@@ -78,7 +78,7 @@ const Home = () => {
                     </div>
                     <div className="flex flex-row justify-center items-center text-start gap-[3rem]">
                         <div>
-                            <img src={GRAD} alt=""/>
+                            <img src={GRAD} alt="" className="rotate-[-15deg]"/>
                         </div>
                         <div className="font-[Thasadith] text-[#606470] font-semibold text-xl">
                             Which ultimately led me to persue a bachelor's degree in Information Technology!
