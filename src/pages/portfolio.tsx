@@ -14,7 +14,7 @@ const Portfolio = ()=> {
         photo: [Curb1, Curb2, Curb3, Curb4, Curb5, Curb6]
     }
     return(
-        <section className="py-[3rem] rounded-t-3xl bg-gradient-to-t from-[#323643] to-[#93DEFF]">
+        <section className="py-[3rem] rounded-t-3xl bg-gradient-to-t from-[#323643] to-[#93DEFF] mb-[-0.1rem]">
             <div className="flex justify-center items-center pb-[3rem]">
                 <div className="font-[gabarito] font-black text-4xl text-[#F7F7F7]">
                     Portfolio
