@@ -1,0 +1,34 @@
+.pointer {
+    animation: scale linear 2s infinite;
+}
+
+@keyframes scale {
+    0% {transform: scale(1); transform: rotate(-30deg);}
+    50% {transform: scale(1.2);}
+    100% {transform: scale(1); transform: rotate(-30deg);}
+}
+
+.contact {
+    animation: open 0.4s ease-in-out;
+}
+
+.contactclose {
+    transform: translateX(32rem);
+    animation: close 0.2s ease-in-out 1;
+}
+
+@keyframes open {
+        from {
+            transform: translateX(32rem);
+        } to {
+            transform: translateX(0rem);
+        }
+}
+
+@keyframes close {
+    from {
+        transform: translateX(0rem);
+    } to {
+        transform: translateX(32rem);
+    }
+}
