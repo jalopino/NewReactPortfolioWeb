@@ -9,15 +9,15 @@
 }
 
 .contact {
-    animation: open 0.4s ease-in-out;
+    animation: contactopen 0.4s ease-in-out;
 }
 
 .contactclose {
     transform: translateX(32rem);
-    animation: close 0.2s ease-in-out 1;
+    animation: contactclose 0.2s ease-in-out 1;
 }
 
-@keyframes open {
+@keyframes contactopen {
         from {
             transform: translateX(32rem);
         } to {
@@ -25,7 +25,7 @@
         }
 }
 
-@keyframes close {
+@keyframes contactclose {
     from {
         transform: translateX(0rem);
     } to {

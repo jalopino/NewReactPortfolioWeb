@@ -24,18 +24,18 @@ function App() {
     <div className='App overflow-clip'>
         <Header/>
         <Nav fn={scrollData}/>
-      <div>
-        <Element name="about">
-          <Home/>
-        </Element>
-        <Element name="portfolio">
-          <Portfolio/>
-        </Element>
-        <Element name="contact">
-          <Contact/>
-        </Element>
-        <Footer/>
-      </div>
+        <div>
+          <Element name="about">
+            <Home/>
+          </Element>
+          <Element name="portfolio">
+            <Portfolio/>
+          </Element>
+          <Element name="contact">
+            <Contact/>
+          </Element>
+          <Footer/>
+        </div>
     </div>
   );
 }

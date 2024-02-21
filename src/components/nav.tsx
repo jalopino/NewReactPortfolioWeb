@@ -8,8 +8,20 @@ const Nav = ({fn}: any) => {
     const [openBar, setOpenBar] = useState(false)
     const startUp = 'invisible'
     const [count, setCount] = useState(0)
+    const navBox = useRef<HTMLDivElement>(null)
+    useEffect(() => {
+        document.addEventListener("mousedown", handleOutsideClick);
+        return () => {
+          document.removeEventListener("mousedown", handleOutsideClick);
+        };
+      });
+    const handleOutsideClick = (e: any) => {
+        if (navBox.current && !navBox.current.contains(e.target)) {
+            setOpenBar(false)
+        }
+      };
     return(
-        <div className="bg-[#F7F7F7] shadow-xl relative sticky top-0 z-20">
+        <div ref={navBox} className="bg-[#F7F7F7] shadow-xl relative sticky top-0 z-20">
             <div className="py-[1rem] flex flex-row w-[100%] justify-center items-center gap-[50%]">
                 <div>
                     <button className="font-[gabarito] font-black text-[#606470] text-lg transition-all hover:scale-110 hover:text-black">{Logo}</button> 
