@@ -10,7 +10,7 @@ const Contact = ()=> {
                     Get in touch
                 </div>
                 <Message/>
-                <div className="font-[thasadith] text-white text-4xl font-bold">
+                <div className="font-[thasadith] text-white text-4xl font-bold mt-[2rem]">
                     Socials
                 </div>
                 <div className="font-[thasadith] text-white text-xl pt-[1rem] pb-[0.2rem]">
