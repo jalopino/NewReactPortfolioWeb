@@ -13,6 +13,8 @@ import REACT from "../assets/react.svg"
 import PH from "../assets/philippines.svg"
 import GRAD from "../assets/grad.svg"
 import LAPTOP from "../assets/laptop.png"
+import HERO from "../assets/hero_bg.png"
+import "../styles/home.css"
 
 const Home = () => {
     return(
@@ -101,9 +103,91 @@ const Home = () => {
             {/*Mobile View*/}
             {/*Desktop View*/}
             <div className="xs:hidden md:block">
-                <section className="bg-[#323643]">
-                    <div className="h-dvh">
+                <section className="bg-[#323643] overflow-hidden">
+                    <div className="h-[60rem] flex flex-row w-[80%] mx-auto justify-center items-center relative pointer-events-none select-none">
+                        <div className="absolute w-[40%] bottom-[-1%] left-0 ml-[-13%] blur-[1px]">
+                            <img src={HERO} alt="" />
+                        </div>
+                        <div className="absolute w-[40%] bottom-[-1%] right-0 mr-[-13%] blur-[1px] scale-x-[-1]">
+                            <img src={HERO} alt="" />
+                        </div>
+                        <div className="flex flex-col gap-20">
+                            <div className="font-[gabarito] font-black text-6xl text-[#F7F7F7] text-center overflow-hidden">
+                                Hi! I'm Paolo Saturnino, <br />a junior web <span className="text-[#93DEFF] relative">developer.<div className="text-start text-white line absolute bottom-[-.5rem] right-[-19rem] bg-[#323643] w-[19rem] h-[4.3rem]">|</div></span>
+                            </div>
+                            <div className="flex bg-[#F7F7F7] w-[100%] p-[1.5rem] border-white border-solid border-1 rounded-2xl shadow-lg overflow-hidden">
+                                <div className="flex flex-row w-[100%] mx-auto justify-center items-center md:gap-[2rem] gap-[3rem] text-center">
+                                    <img src={REACT} alt="" className="md:h-[2rem] lg:h-[5rem]"/>
+                                    <img src={NODE} alt="" className="md:h-[2rem] lg:h-[5rem]"/>
+                                    <img src={MONGO} alt="" className="md:h-[2rem] lg:h-[5rem]"/>
+    
+                                    <img src={CI} alt="" className="md:h-[2rem] lg:h-[5rem]"/>
+                                    <img src={PHP} alt="" className="md:h-[2rem] lg:h-[5rem]"/>
+                                    <img src={MYSQL} alt="" className="md:h-[2rem] lg:h-[5rem]"/>
 
+                                    <img src={HTML} alt="" className="md:h-[2rem] lg:h-[5rem]"/>
+                                    <img src={JS} alt="" className="md:h-[2rem] lg:h-[5rem]"/>
+                                    <img src={CSS3} alt="" className="md:h-[2rem] lg:h-[5rem]"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex justify-center items-center">
+                        <i className="transition animate-bounce absolute fa fa-arrow-down text-[3rem] text-white bg-[#93DEFF] rounded-full px-[1.5rem] py-[1rem]"></i>
+                    </div>
+                </section>
+                <section className="bg-gradient-to-b from-[#323643] to-[#606470] overflow-hidden">
+                    <div className="flex flex-col w-[80%] gap-[5rem] mx-auto justify-center items-center relative pointer-events-none select-none pt-[20rem]">
+                        <div className="flex flex-row gap-10 w-[100%] justify-center items-center">
+                            <div className="w-[70%]">
+                                <div className="font-[gabarito] font-black text-6xl text-[#F7F7F7] text-center mb-10">
+                                    Tech Stack
+                                </div>
+                                <div className="flex flex-row gap-6 justify-center items-center gap-[4rem]">
+                                <div className="w-[100%] flex justify-center items-center">
+                                    <div className="font-[thasadith] font-bold text-4xl text-[#F7F7F7] text-justify">
+                                            I specialize in <span className="text-[#93DEFF] font-[gabarito]">React, Express/Node JS, and MongoDB.</span> Leveraging extensive experience in web development with a strong foundation in <span className="text-[#93DEFF] font-[gabarito]">HTML, JavaScript, CSS, PHP, MySQL, Python, and frameworks such as CodeIgniter and Flask.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-[3rem] bg-[#606470] to-[#93DEFF] rounded-2xl w-[70%] mx-auto p-[3rem] shadow-2xl">
+                                <div className="font-[gabarito] font-black text-[#F7F7F7] text-6xl text-center">
+                                What's my story?
+                                </div>
+                                <div className="flex flex-row justify-center text-[#F7F7F7] items-center text-start gap-[3rem]">
+                                    <div className="font-[Thasadith] font-semibold text-3xl">
+                                        Born and raised in the Philippines, I was always fascinated with computers at a young age.
+                                    </div>
+                                    <div>
+                                        <img src={PH} alt="" className="w-[15rem] bg-white rounded-full p-[.5rem]"/>
+                                    </div>
+                                </div>
+                                <div className="flex flex-row justify-center items-center text-start gap-[3rem]">
+                                    <div>
+                                        <img src={GRAD} alt="" className="rotate-[-15deg] w-[15rem] bg-white rounded-full p-[.5rem]"/>
+                                    </div>
+                                    <div className="font-[Thasadith] font-semibold text-[#F7F7F7] text-3xl">
+                                        Which ultimately led me to persue a bachelor's degree in Information Technology!
+                                    </div>
+                                </div>
+                                <div className="flex flex-row justify-center items-center text-start gap-[3rem]">
+                                    <div className="font-[Thasadith] font-semibold text-[#F7F7F7] text-3xl">
+                                        I always keep up with new upcoming tech 
+                                        trends to keep myself updated in best practices.
+                                    </div>
+                                    <div>
+                                        <img src={LAPTOP} alt="" className="w-[15rem] bg-white rounded-full p-[.5rem]"/>
+                                    </div>
+                                </div>
+                            </div>
+                        <div className="absolute w-[40%] top-[-1%] left-0 ml-[-13%] blur-[1px] scale-y-[-1]">
+                            <img src={HERO} alt="" />
+                        </div>
+                        <div className="absolute w-[40%] top-[-1%] right-0 mr-[-13%] blur-[1px] scale-x-[-1] scale-y-[-1]">
+                            <img src={HERO} alt="" />
+                        </div>
                     </div>
                 </section>
             </div>

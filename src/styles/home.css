@@ -1,0 +1,16 @@
+.line {
+    animation: keyanim 4s steps(13) infinite;
+}
+
+@keyframes keyanim {
+    0% {
+        transform: translateX(-18rem);
+    } 40% {
+        transform: translateX(0rem);
+    } 
+    80% {
+        transform: translateX(0rem);
+    } 100% {
+        transform: translateX(-18rem);
+    }
+}
