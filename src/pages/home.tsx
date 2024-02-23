@@ -100,7 +100,7 @@ const Home = () => {
             </div>
             {/*Mobile View*/}
             {/*Desktop View*/}
-            <div>
+            <div className="xs:hidden md:block">
                 <section className="bg-[#323643]">
                     <div className="h-dvh">
 

@@ -26,17 +26,19 @@ const Nav = ({fn}: any) => {
                 <div>
                     <button className="font-[gabarito] font-black text-[#606470] text-lg transition-all hover:scale-110 hover:text-black">{Logo}</button> 
                 </div>
-                <div className="flex flex-row justify-center items-center gap-[1rem]">
-                    <div className="transition-all hover:scale-125">
+            {/*Desktop View*/}
+                <div className="flex flex-row justify-center items-center gap-[3rem] xs:hidden md:flex">
+                    <div className="transition-all hover:scale-110">
                         <button onClick={()=> fn('about')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black">About</button>
                     </div>
-                    <div className="transition-all hover:scale-125">
+                    <div className="transition-all hover:scale-110">
                         <button onClick={()=> fn('portfolio')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black">Portfolio</button>
                     </div>
-                    <div className="transition-all hover:scale-125">
+                    <div className="transition-all hover:scale-110">
                         <button onClick={()=> fn('contact')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black">Contact</button>
                     </div>
                 </div>
+            {/*Desktop View*/}
             {/*Mobile View*/}
                 <div className="md:hidden">
                     <button onClick={()=>{
