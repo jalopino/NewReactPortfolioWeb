@@ -145,7 +145,7 @@ const Home = () => {
                     </div>
                 </section>
                 <section className="bg-gradient-to-b from-[#323643] to-[#606470] overflow-hidden">
-                    <div className="flex flex-col w-[80%] gap-[5rem] mx-auto justify-center items-center relative pointer-events-none select-none pt-[20rem]">
+                    <div className="flex flex-col w-[80%] gap-[5rem] mx-auto justify-center items-center relative pointer-events-none select-none pt-[20rem] pb-[10rem]">
                         <div className="flex flex-row gap-10 w-[100%] justify-center items-center">
                             <div className="w-[70%]">
                                 <div className="font-[gabarito] font-black text-6xl text-[#F7F7F7] text-center mb-10">
