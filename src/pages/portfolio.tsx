@@ -42,6 +42,9 @@ const Portfolio = ()=> {
                 </section>
             </div>
             {/*Mobile View*/}
+            {/*Desktop View*/}
+            
+            {/*Desktop View*/}
         </div>
     )
 }

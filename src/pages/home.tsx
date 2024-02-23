@@ -15,6 +15,11 @@ import GRAD from "../assets/grad.svg"
 import LAPTOP from "../assets/laptop.png"
 import HERO from "../assets/hero_bg.png"
 import "../styles/home.css"
+import { animateScroll as scroll } from 'react-scroll';
+
+const scrollToBottom = () => {
+    scroll.scrollToBottom();
+  };
 
 const Home = () => {
     return(
@@ -132,8 +137,11 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-center items-center">
-                        <i className="transition animate-bounce absolute fa fa-arrow-down text-[3rem] text-white bg-[#93DEFF] rounded-full px-[1.5rem] py-[1rem]"></i>
+                    <div className="flex flex-col justify-center items-center">
+                        <button onClick={()=>scrollToBottom()}className="animate-bounce absolute flex flex-col gap-[1rem] justify-center items-center font-[thasadith] text-lg">
+                            <div className="text-white">Go Down</div>
+                            <i className="transition fa fa-arrow-down text-[3rem] text-white bg-[#93DEFF] rounded-full px-[1.5rem] py-[1rem]"></i>
+                            </button>
                     </div>
                 </section>
                 <section className="bg-gradient-to-b from-[#323643] to-[#606470] overflow-hidden">
