@@ -43,7 +43,19 @@ const Portfolio = ()=> {
             </div>
             {/*Mobile View*/}
             {/*Desktop View*/}
-            
+            <div className="bg-gradient-to-t to-[#606470] from-[#93DEFF]">
+                <div className="flex flex-col justify-center items-center gap-[2rem] xs:hidden md:flex">
+                    <div className="font-[gabarito] font-black text-6xl text-[#F7F7F7] ">
+                        Portfolio
+                    </div>
+                    <button>
+                        <div className="transition font-[Thasadith] font-normal text-4xl text-[#F7F7F7] relative hover:scale-110">
+                            Curbside Coffee
+                        </div>
+                        <Carousel {...curbside}/>
+                    </button>
+                </div>
+            </div>
             {/*Desktop View*/}
         </div>
     )
