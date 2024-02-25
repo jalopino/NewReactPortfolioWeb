@@ -13,7 +13,6 @@ const Footer = () => {
                 <div>
                     <button><i className="fa-brands fa-facebook text-2xl hover:scale-110 text-[#606470] hover:text-black"></i></button>
                 </div>
-
             </div>
         </div>
     )

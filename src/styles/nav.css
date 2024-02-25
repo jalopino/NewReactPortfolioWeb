@@ -7,6 +7,32 @@
     animation: close 0.2s ease-in-out 1;
 }
 
+.noti {
+    animation: opennoti 0.2s ease-in-out;
+}
+
+.noticlose {
+    transform: translateX(34rem);
+    animation: closenoti 0.2s ease-in-out 1;
+}
+
+@keyframes opennoti {
+    from {
+        transform: translateX(34rem);
+    } to {
+        transform: translateX(0rem);
+    }
+}
+
+@keyframes closenoti {
+from {
+    transform: translateX(0rem);
+} to {
+    transform: translateX(34rem);
+}
+}
+
+
 @keyframes open {
         from {
             transform: translateX(12rem);

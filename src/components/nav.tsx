@@ -1,10 +1,11 @@
 import React, { useEffect } from "react"
 import { useState, useRef } from "react"
 import "../styles/nav.css"
+import Loading from '../assets/loading.svg'
 
 const Logo = '<Paolo/>'
 
-const Nav = ({fn}: any) => {
+const Nav = ({fn, noti, notiStat}: any) => {
     const [openBar, setOpenBar] = useState(false)
     const startUp = 'invisible'
     const [count, setCount] = useState(0)
@@ -26,7 +27,21 @@ const Nav = ({fn}: any) => {
                 <div>
                     <button className="font-[gabarito] font-black text-[#606470] text-lg transition-all hover:scale-110 hover:text-black">{Logo}</button> 
                 </div>
-                <div>
+            {/*Desktop View*/}
+                <div className="flex flex-row justify-center items-center gap-[3rem] xs:hidden md:flex">
+                    <div className="transition-all hover:scale-110">
+                        <button onClick={()=> fn('about')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black">About</button>
+                    </div>
+                    <div className="transition-all hover:scale-110">
+                        <button onClick={()=> fn('portfolio')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black">Portfolio</button>
+                    </div>
+                    <div className="transition-all hover:scale-110">
+                        <button onClick={()=> fn('contact')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black">Contact</button>
+                    </div>
+                </div>
+            {/*Desktop View*/}
+            {/*Mobile View*/}
+                <div className="md:hidden">
                     <button onClick={()=>{
                         if(openBar) {
                             setOpenBar(false)
@@ -39,21 +54,42 @@ const Nav = ({fn}: any) => {
                         className="transition-all hover:scale-125 text-[#606470] hover:text-black"><i className="fa fa-bars"></i></button> 
                 </div>
             </div>
-            <fieldset disabled={openBar ? false : true} className={count < 1 ? startUp : ''}>
-                <div className={openBar ? 
-                "mobilenav px-[2rem] py-[0.5rem] gap-[0.5rem] flex flex-col absolute right-7 bg-[#F7F7F7] text-start border-solid border-1 border-[#F7F7F7] shadow-2xl rounded-lg mt-[1rem]" : 
-                "mobilenavclose px-[2rem] py-[0.5rem] gap-[0.5rem] flex flex-col absolute right-7 bg-[#F7F7F7] text-start border-solid border-1 border-[#F7F7F7] shadow-2xl rounded-lg mt-[1rem]"}>
-                    <div className="transition-all hover:scale-125">
-                        <button onClick={()=> fn('about')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black"><i className="fa fa-person px-[0.5rem]"></i> about</button>
-                    </div>
-                    <div className="transition-all hover:scale-125">
-                        <button onClick={()=> fn('portfolio')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black"><i className="fa fa-check px-[0.5rem]"></i>portfolio</button>
-                    </div>
-                    <div className="transition-all hover:scale-125">
-                        <button onClick={()=> fn('contact')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black"><i className="fa fa-phone px-[0.5rem]"></i>contact</button>
+            {/*Desktop View Notification*/}
+            <div className={noti ? "xs:hidden md:block noti absolute right-0 mt-10 mr-10" : "xs:hidden md:hidden"}>
+                <div className="bg-white flex flex-col w-[30rem] h-[7rem] p-[1rem] border rounded-2xl items-center justify-center shadow-2xl gap-[0.2rem]">
+                    <img src={Loading} className="animate-spin h-[2rem]" alt=""/>
+                    <div className="font-[Thasadith] text-3xl">
+                        Message is being sent.... 
                     </div>
                 </div>
-            </fieldset>
+            </div>
+            <div className={notiStat !== '' ? "xs:hidden md:block absolute right-0 mt-10 mr-10" : "noticlose absolute right-0 mt-10 mr-10"}>
+                <div className="bg-white flex flex-col w-[30rem] h-[7rem] p-[1rem] border rounded-2xl items-center justify-center shadow-2xl gap-[0.2rem]">
+                    <i className={notiStat === 'sent' ? "fa-solid fa-check text-3xl bg-[#3f8f29] p-[1rem] px-[1.2rem] rounded-full" : "fa-solid fa-x text-xl bg-[#de1a24] p-[1rem] px-[1.2rem] rounded-full"}></i>
+                    <div className="font-[Thasadith] text-3xl">
+                        {notiStat === 'sent' ? 'Message was successfully sent!' : 'Message Failed...'} 
+                    </div>
+                </div>
+            </div>
+            {/*Desktop View Notification*/}
+            <div className="md:hidden">
+                <fieldset disabled={openBar ? false : true} className={count < 1 ? startUp : ''}>
+                    <div className={openBar ? 
+                    "mobilenav px-[2rem] py-[0.5rem] gap-[0.5rem] flex flex-col absolute right-7 bg-[#F7F7F7] text-start border-solid border-1 border-[#F7F7F7] shadow-2xl rounded-lg mt-[1rem]" : 
+                    "mobilenavclose px-[2rem] py-[0.5rem] gap-[0.5rem] flex flex-col absolute right-7 bg-[#F7F7F7] text-start border-solid border-1 border-[#F7F7F7] shadow-2xl rounded-lg mt-[1rem]"}>
+                        <div className="transition-all hover:scale-125">
+                            <button onClick={()=> fn('about')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black"><i className="fa fa-person px-[0.5rem]"></i> about</button>
+                        </div>
+                        <div className="transition-all hover:scale-125">
+                            <button onClick={()=> fn('portfolio')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black"><i className="fa fa-check px-[0.5rem]"></i>portfolio</button>
+                        </div>
+                        <div className="transition-all hover:scale-125">
+                            <button onClick={()=> fn('contact')} className="font-[Thasadith] text-[#606470] font-semibold hover:text-black"><i className="fa fa-phone px-[0.5rem]"></i>contact</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            {/*Mobile View*/}
         </div>
     )
 }
