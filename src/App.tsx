@@ -10,7 +10,7 @@ import Contact from './pages/contact';
 import { Element, scroller } from 'react-scroll';
 
 function App() {
-
+  const [notification, setNotification] = useState(false)
   const scrollData = (data: string) => {
     scroller.scrollTo(data, {
       duration: 900,
@@ -23,7 +23,7 @@ function App() {
   return (
     <div className='App overflow-clip'>
         <Header/>
-        <Nav fn={scrollData}/>
+        <Nav fn={scrollData} noti={notification} />
         <div>
           <Element name="about">
             <Home/>
@@ -32,7 +32,7 @@ function App() {
             <Portfolio/>
           </Element>
           <Element name="contact">
-            <Contact/>
+            <Contact noti={setNotification}/>
           </Element>
         </div>
         <Footer/>

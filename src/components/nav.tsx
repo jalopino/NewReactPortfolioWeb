@@ -1,10 +1,11 @@
 import React, { useEffect } from "react"
 import { useState, useRef } from "react"
 import "../styles/nav.css"
+import Loading from '../assets/loading.svg'
 
 const Logo = '<Paolo/>'
 
-const Nav = ({fn}: any) => {
+const Nav = ({fn, noti}: any) => {
     const [openBar, setOpenBar] = useState(false)
     const startUp = 'invisible'
     const [count, setCount] = useState(0)
@@ -53,6 +54,16 @@ const Nav = ({fn}: any) => {
                         className="transition-all hover:scale-125 text-[#606470] hover:text-black"><i className="fa fa-bars"></i></button> 
                 </div>
             </div>
+            {/*Desktop View Notification*/}
+            <div className={noti ? "xs:hidden md:block absolute right-0 mt-10 mr-10" : "md:hidden"}>
+                <div className="bg-white flex flex-col w-[100%] p-[1rem] border rounded-2xl items-center justify-center shadow-2xl gap-[0.2rem]">
+                    <img src={Loading} className="animate-spin h-[2rem]" alt=""/>
+                    <div className="font-[Thasadith] text-xl">
+                        Message is being sent.... 
+                    </div>
+                </div>
+            </div>
+            {/*Desktop View Notification*/}
             <div className="md:hidden">
                 <fieldset disabled={openBar ? false : true} className={count < 1 ? startUp : ''}>
                     <div className={openBar ? 

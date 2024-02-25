@@ -3,6 +3,7 @@ import axios from "axios";
 import "../styles/contact.css"
 import Loading from '../assets/loading.svg'
 import emailjs from '@emailjs/browser';
+import { truncate } from "fs";
 
 //Email validator API Axios config
 const defaultConfig = {
@@ -17,22 +18,34 @@ const defaultConfig = {
     }
     };
 
-const Message = ()=> {
+const Message = ({setNoti} :any)=> {
     const [notification, setNotification] = useState(false)
     const [status, setStatus] = useState('')
     const [config, setConfig] = useState(defaultConfig)
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [disableSubmit, setDisableSubmit] = useState(false)
     const email = useRef<any>(null)
     const name = useRef<any>(null)
     const message = useRef<any>(null)
     const form = useRef<any>(null)
+    const emailDesk = useRef<any>(null)
+    const nameDesk = useRef<any>(null)
+    const messageDesk = useRef<any>(null)
+    const formDesk = useRef<any>(null)
     const msgBox = useRef<HTMLDivElement>(null)
 
     //Handle Submit 
     const handleSubmit = (e: any)=> {
         e.preventDefault();
         axiosFetchData(config)
+    }
+
+    const handleSubmitDesk = (e: any)=> {
+        e.preventDefault();
+        setDisableSubmit(true)
+        setNoti(true)
+        axiosFetchDataDesk(config)
     }
 
     //Fetch Data
@@ -46,6 +59,16 @@ const Message = ()=> {
             console.log(e) 
         }
     }
+
+    const axiosFetchDataDesk = async (configs: object) => {
+        try {
+           await axios.request(configs).then(response => {
+                   checkValidityDesk(response.data)
+               })
+       } catch (e) {
+           console.log(e) 
+       }
+   }
 
     //check validity email
     const checkValidity = (data: any)=> {
@@ -61,6 +84,9 @@ const Message = ()=> {
                     email.current.value = ''
                     name.current.value = ''
                     message.current.value = ''
+                    emailDesk.current.value = ''
+                    nameDesk.current.value = ''
+                    messageDesk.current.value = ''
                 })
                 .then(
                   () => {
@@ -90,6 +116,47 @@ const Message = ()=> {
             }
         }, 2000)
     }
+
+    const checkValidityDesk = (data: any)=> {
+        setTimeout(()=> {
+            setDisableSubmit(false)
+            setNoti(false)
+            if (data.valid === true) {
+                emailjs
+                .sendForm('service_49kdodc', 'template_rkza0p9', formDesk.current, {
+                  publicKey: 'K6BrxtYI_7BYrMwEA',
+                })
+                .then(() => {
+                    email.current.value = ''
+                    name.current.value = ''
+                    message.current.value = ''
+                    emailDesk.current.value = ''
+                    nameDesk.current.value = ''
+                    messageDesk.current.value = ''
+                })
+                .then(
+                  () => {
+                    console.log('SUCCESS!')
+                    setStatus('Success! Message has been sent.')
+                    setTimeout(()=> {
+                    }, 3000)
+                  },
+                  (error) => {
+                    console.log('FAILED...', error.text)
+                    setStatus('Failed! Message has not been sent.')
+                    setTimeout(()=> {
+                    }, 3000)
+                  },
+                )
+            } else {
+                 console.log("Email is not valid!")
+                 setStatus('Inavlid! Email address is not valid.')
+                 setTimeout(()=> {
+                }, 3000)
+            }
+        }, 2000)
+    }
+
 
     useEffect(() => {
         document.addEventListener("mousedown", handleOutsideClick);
@@ -122,7 +189,7 @@ const Message = ()=> {
                                             <input ref={name} type="text" name="user_name" placeholder="Name" className="border-gray border rounded-md font-bold font-[thasadith] px-[0.6rem]"/>
                                         </div>
                                         <div>
-                                            <input ref={message} type="text" name="message" maxLength={200}  placeholder="Message" className="border-gray border rounded-md font-bold font-[thasadith] px-[0.6rem]"/>
+                                            <textarea ref={message} name="message" maxLength={200}  placeholder="Message" className="border-gray border rounded-md font-bold font-[thasadith] px-[0.6rem]"/>
                                         </div>
                                         <div>
                                             <input type="submit" className="transition font-[gabarito] bg-[#93DEFF] px-[0.5rem] rounded-sm text-white shadow-2xl hover:scale-110"></input>
@@ -158,8 +225,22 @@ const Message = ()=> {
             </div>
             {/*Mobile View*/}
             {/*Desktop View*/}
-            <div>
-                
+            <div className="shadow-2xl flex flex-col bg-[#323643] rounded-md p-[1rem] gap-[2rem] items-center xs:hidden md:flex w-[50rem]">
+                <form ref={formDesk} onSubmit={handleSubmitDesk} className="w-[100%] flex flex-col gap-[1rem]">
+                    <div>
+                        <div className="font-[gabarito] text-3xl font-bold text-white">Email</div>
+                        <input ref={emailDesk} onChange={(e)=>setConfig({...config, params: {domain: e.target.value}})} type="text" name="user_email" className="text-2xl border-gray border rounded-md font-bold font-[thasadith] px-[0.6rem] w-[100%] "/>
+                    </div>
+                    <div>
+                        <div className="font-[gabarito] text-3xl font-bold text-white">Name</div>
+                        <input ref={nameDesk} type="text" name="user_name" className="text-2xl border-gray border rounded-md font-bold font-[thasadith] px-[0.6rem] w-[100%] "/>
+                    </div>
+                    <div>
+                        <div className="font-[gabarito] text-3xl font-bold text-white">Message</div>
+                        <textarea ref={messageDesk} name="message" maxLength={200} placeholder="" className="resize-none text-2xl border-gray border rounded-md font-bold font-[thasadith] px-[0.6rem] w-[100%] h-[10rem]"/>
+                    </div>  
+                    <input type="submit" disabled={disableSubmit ? true : false} className="text-2xl transition font-[thasadith] mx-auto bg-white px-[0.5rem] rounded-sm text-black shadow-2xl hover:scale-110"></input>
+                </form>
             </div>
             {/*Desktop View*/}
         </div>
