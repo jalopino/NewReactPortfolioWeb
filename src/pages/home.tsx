@@ -139,7 +139,7 @@ const Home = () => {
                     </div>
                     <div className="flex flex-col justify-center items-center">
                         <button onClick={()=>scrollToBottom()}className="animate-bounce absolute flex flex-col gap-[1rem] justify-center items-center font-[thasadith] text-lg">
-                            <div className="text-white">Go Down</div>
+                            <div className="text-white">Go Down!</div>
                             <i className="transition fa fa-arrow-down text-[3rem] text-white bg-[#93DEFF] rounded-full px-[1.5rem] py-[1rem]"></i>
                             </button>
                     </div>

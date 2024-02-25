@@ -43,7 +43,7 @@ const Portfolio = ()=> {
             </div>
             {/*Mobile View*/}
             {/*Desktop View*/}
-            <div className="bg-gradient-to-t to-[#606470] from-[#93DEFF]">
+            <div className="bg-gradient-to-t from-[#323643] to-[#606470] py-[4rem] ">
                 <div className="flex flex-col justify-center items-center gap-[2rem] xs:hidden md:flex">
                     <div className="font-[gabarito] font-black text-6xl text-[#F7F7F7] ">
                         Portfolio
