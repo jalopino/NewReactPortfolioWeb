@@ -18,10 +18,11 @@ const defaultConfig = {
     }
     };
 
-const Message = ({setNoti} :any)=> {
+const Message = ({setNoti, setNotiStatus} :any)=> {
     const [notification, setNotification] = useState(false)
     const [status, setStatus] = useState('')
     const [config, setConfig] = useState(defaultConfig)
+    const [configDesk, setConfigDesk] = useState(defaultConfig)
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false)
     const [disableSubmit, setDisableSubmit] = useState(false)
@@ -45,7 +46,7 @@ const Message = ({setNoti} :any)=> {
         e.preventDefault();
         setDisableSubmit(true)
         setNoti(true)
-        axiosFetchDataDesk(config)
+        axiosFetchDataDesk(configDesk)
     }
 
     //Fetch Data
@@ -64,6 +65,7 @@ const Message = ({setNoti} :any)=> {
         try {
            await axios.request(configs).then(response => {
                    checkValidityDesk(response.data)
+                   console.log(response.data)
                })
        } catch (e) {
            console.log(e) 
@@ -87,6 +89,7 @@ const Message = ({setNoti} :any)=> {
                     emailDesk.current.value = ''
                     nameDesk.current.value = ''
                     messageDesk.current.value = ''
+                    setConfig(defaultConfig)
                 })
                 .then(
                   () => {
@@ -120,7 +123,6 @@ const Message = ({setNoti} :any)=> {
     const checkValidityDesk = (data: any)=> {
         setTimeout(()=> {
             setDisableSubmit(false)
-            setNoti(false)
             if (data.valid === true) {
                 emailjs
                 .sendForm('service_49kdodc', 'template_rkza0p9', formDesk.current, {
@@ -133,25 +135,35 @@ const Message = ({setNoti} :any)=> {
                     emailDesk.current.value = ''
                     nameDesk.current.value = ''
                     messageDesk.current.value = ''
+                    setConfigDesk(defaultConfig)
                 })
                 .then(
                   () => {
                     console.log('SUCCESS!')
                     setStatus('Success! Message has been sent.')
+                    setNoti(false)
+                    setNotiStatus('sent')
                     setTimeout(()=> {
+                    setNotiStatus('')
                     }, 3000)
                   },
                   (error) => {
                     console.log('FAILED...', error.text)
                     setStatus('Failed! Message has not been sent.')
+                    setNoti(false)
+                    setNotiStatus('failed')
                     setTimeout(()=> {
+                    setNotiStatus('')
                     }, 3000)
                   },
                 )
             } else {
+                 setNoti(false)
                  console.log("Email is not valid!")
                  setStatus('Inavlid! Email address is not valid.')
+                 setNotiStatus('failed')
                  setTimeout(()=> {
+                 setNotiStatus('')
                 }, 3000)
             }
         }, 2000)
@@ -229,7 +241,7 @@ const Message = ({setNoti} :any)=> {
                 <form ref={formDesk} onSubmit={handleSubmitDesk} className="w-[100%] flex flex-col gap-[1rem]">
                     <div>
                         <div className="font-[gabarito] text-3xl font-bold text-white">Email</div>
-                        <input ref={emailDesk} onChange={(e)=>setConfig({...config, params: {domain: e.target.value}})} type="text" name="user_email" className="text-2xl border-gray border rounded-md font-bold font-[thasadith] px-[0.6rem] w-[100%] "/>
+                        <input ref={emailDesk} onChange={(e)=>setConfigDesk({...config, params: {domain: e.target.value}})} type="text" name="user_email" className="text-2xl border-gray border rounded-md font-bold font-[thasadith] px-[0.6rem] w-[100%] "/>
                     </div>
                     <div>
                         <div className="font-[gabarito] text-3xl font-bold text-white">Name</div>

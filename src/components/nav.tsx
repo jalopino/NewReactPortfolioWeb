@@ -5,7 +5,7 @@ import Loading from '../assets/loading.svg'
 
 const Logo = '<Paolo/>'
 
-const Nav = ({fn, noti}: any) => {
+const Nav = ({fn, noti, notiStat}: any) => {
     const [openBar, setOpenBar] = useState(false)
     const startUp = 'invisible'
     const [count, setCount] = useState(0)
@@ -55,11 +55,19 @@ const Nav = ({fn, noti}: any) => {
                 </div>
             </div>
             {/*Desktop View Notification*/}
-            <div className={noti ? "xs:hidden md:block absolute right-0 mt-10 mr-10" : "md:hidden"}>
-                <div className="bg-white flex flex-col w-[100%] p-[1rem] border rounded-2xl items-center justify-center shadow-2xl gap-[0.2rem]">
+            <div className={noti ? "xs:hidden md:block noti absolute right-0 mt-10 mr-10" : "xs:hidden md:hidden"}>
+                <div className="bg-white flex flex-col w-[30rem] h-[7rem] p-[1rem] border rounded-2xl items-center justify-center shadow-2xl gap-[0.2rem]">
                     <img src={Loading} className="animate-spin h-[2rem]" alt=""/>
-                    <div className="font-[Thasadith] text-xl">
+                    <div className="font-[Thasadith] text-3xl">
                         Message is being sent.... 
+                    </div>
+                </div>
+            </div>
+            <div className={notiStat !== '' ? "xs:hidden md:block absolute right-0 mt-10 mr-10" : "noticlose absolute right-0 mt-10 mr-10"}>
+                <div className="bg-white flex flex-col w-[30rem] h-[7rem] p-[1rem] border rounded-2xl items-center justify-center shadow-2xl gap-[0.2rem]">
+                    <i className={notiStat === 'sent' ? "fa-solid fa-check text-3xl bg-[#3f8f29] p-[1rem] px-[1.2rem] rounded-full" : "fa-solid fa-x text-xl bg-[#de1a24] p-[1rem] px-[1.2rem] rounded-full"}></i>
+                    <div className="font-[Thasadith] text-3xl">
+                        {notiStat === 'sent' ? 'Message was successfully sent!' : 'Message Failed...'} 
                     </div>
                 </div>
             </div>
