@@ -2,10 +2,14 @@ import React, { useEffect } from "react"
 import { useState, useRef } from "react"
 import "../styles/nav.css"
 import Loading from '../assets/loading.svg'
+import { animateScroll as scroll } from 'react-scroll';
+
 
 const Logo = '<Paolo/>'
-
-const Nav = ({fn, noti, notiStat}: any) => {
+const scrollToTop = () => {
+    scroll.scrollToTop();
+ }
+const Nav = ({fn, noti, notiStat, closeNoti}: any) => {
     const [openBar, setOpenBar] = useState(false)
     const startUp = 'invisible'
     const [count, setCount] = useState(0)
@@ -25,7 +29,7 @@ const Nav = ({fn, noti, notiStat}: any) => {
         <div ref={navBox} className="bg-[#F7F7F7] shadow-xl relative sticky top-0 z-20">
             <div className="py-[1rem] flex flex-row w-[100%] justify-center items-center gap-[50%]">
                 <div>
-                    <button className="font-[gabarito] font-black text-[#606470] text-lg transition-all hover:scale-110 hover:text-black">{Logo}</button> 
+                    <button onClick={scrollToTop} className="font-[gabarito] font-black text-[#606470] text-lg transition-all hover:scale-110 hover:text-black">{Logo}</button> 
                 </div>
             {/*Desktop View*/}
                 <div className="flex flex-row justify-center items-center gap-[3rem] xs:hidden md:flex">
@@ -55,19 +59,21 @@ const Nav = ({fn, noti, notiStat}: any) => {
                 </div>
             </div>
             {/*Desktop View Notification*/}
-            <div className={noti ? "xs:hidden md:block noti absolute right-0 mt-10 mr-10" : "xs:hidden md:hidden"}>
-                <div className="bg-white flex flex-col w-[30rem] h-[7rem] p-[1rem] border rounded-2xl items-center justify-center shadow-2xl gap-[0.2rem]">
-                    <img src={Loading} className="animate-spin h-[2rem]" alt=""/>
-                    <div className="font-[Thasadith] text-3xl">
-                        Message is being sent.... 
+            <div className={closeNoti <= 0 || null ? "hidden" : "block"}>
+                <div className={noti ? "xs:hidden md:block noti absolute right-0 mt-10 mr-10" : "xs:hidden md:hidden"}>
+                    <div className="bg-white flex flex-col w-[30rem] h-[7rem] p-[1rem] border rounded-2xl items-center justify-center shadow-2xl gap-[0.2rem]">
+                        <img src={Loading} className="animate-spin h-[2rem]" alt=""/>
+                        <div className="font-[Thasadith] text-3xl">
+                            Message is being sent.... 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className={notiStat !== '' ? "xs:hidden md:block absolute right-0 mt-10 mr-10" : "noticlose absolute right-0 mt-10 mr-10"}>
-                <div className="bg-white flex flex-col w-[30rem] h-[7rem] p-[1rem] border rounded-2xl items-center justify-center shadow-2xl gap-[0.2rem]">
-                    <i className={notiStat === 'sent' ? "fa-solid fa-check text-3xl bg-[#3f8f29] p-[1rem] px-[1.2rem] rounded-full" : "fa-solid fa-x text-xl bg-[#de1a24] p-[1rem] px-[1.2rem] rounded-full"}></i>
-                    <div className="font-[Thasadith] text-3xl">
-                        {notiStat === 'sent' ? 'Message was successfully sent!' : 'Message Failed...'} 
+                <div className={notiStat !== '' ? "xs:hidden md:block absolute right-0 mt-10 mr-10" : "noticlose absolute right-0 mt-10 mr-10"}>
+                    <div className="bg-white flex flex-col w-[30rem] h-[7rem] p-[1rem] border rounded-2xl items-center justify-center shadow-2xl gap-[0.2rem]">
+                        <i className={notiStat === 'sent' ? "fa-solid fa-check text-3xl bg-[#3f8f29] p-[1rem] px-[1.2rem] rounded-full" : "fa-solid fa-x text-xl bg-[#de1a24] p-[1rem] px-[1.2rem] rounded-full"}></i>
+                        <div className="font-[Thasadith] text-3xl">
+                            {notiStat === 'sent' ? 'Message was successfully sent!' : 'Message Failed...'} 
+                        </div>
                     </div>
                 </div>
             </div>

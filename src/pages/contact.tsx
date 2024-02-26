@@ -3,7 +3,7 @@ import Message from "../components/message";
 import Hero from "../assets/herocontact.png"
 
 
-const Contact = ({noti, setStat} :any)=> {
+const Contact = ({noti, setStat, setCloseNoti} :any)=> {
     return(
         <div>
             {/*Mobile View*/}
@@ -38,7 +38,7 @@ const Contact = ({noti, setStat} :any)=> {
                     </div>
                     <div className="flex flex-row w-[100%] justify-center gap-[2rem] ">
                         <div className="z-10">
-                            <Message setNoti={noti} setNotiStatus={setStat}/>
+                            <Message setNoti={noti} setNotiStatus={setStat} setClose={setCloseNoti}/>
                         </div>
                         <div className="flex flex-col w-[30%] items-start py-[.5rem] px-[2rem] relative z-10 my-auto">
                             <div className="font-[gabarito] text-white text-6xl font-bold mt-[2rem]">

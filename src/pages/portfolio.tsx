@@ -44,16 +44,26 @@ const Portfolio = ()=> {
             {/*Mobile View*/}
             {/*Desktop View*/}
             <div className="bg-gradient-to-t from-[#323643] to-[#606470] py-[4rem] xs:hidden md:block">
-                <div className="flex flex-col justify-center items-center gap-[2rem]">
+                <div className="flex flex-col justify-center items-center gap-[6rem]">
                     <div className="font-[gabarito] font-black text-6xl text-[#F7F7F7] ">
                         Portfolio
                     </div>
-                    <button>
-                        <div className="transition font-[Thasadith] font-normal text-4xl text-[#F7F7F7] relative hover:scale-110">
-                            Curbside Coffee
-                        </div>
-                        <Carousel {...curbside}/>
+                    <button className="transition font-[Thasadith] font-black text-4xl text-[#F7F7F7] hover:scale-110 relative">
+                        Check out my GitHub Repositories here!
+                        <div className="pointer absolute rotate-[-30deg] top-[1rem] right-[-2rem] left-[38rem] z-10">
+                                    <img src={Pointer} alt="" className="w-[4rem]"/>
+                                </div>
                     </button>
+                    <div className="flex flex-col justify-center items-center gap-[1rem]">
+                        <button className="transition font-[Thasadith] font-normal text-4xl text-[#F7F7F7] relative hover:scale-110">
+                            Curbside Coffee
+                        </button>
+                        <Carousel {...curbside}/>
+                        <div className="font-[Thasadith] font-normal text-2xl text-[#F7F7F7] text-center">
+                            A project that started on December of 2023 for a local coffee shop in Bacolod City. <br />
+                            Utilizing <span className="text-[#93DEFF]">ReactJS </span>and <span className="text-[#93DEFF]">Tailwind CSS</span> for a responsive website.
+                        </div>
+                    </div>
                 </div>
             </div>
             {/*Desktop View*/}

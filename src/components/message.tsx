@@ -18,7 +18,7 @@ const defaultConfig = {
     }
     };
 
-const Message = ({setNoti, setNotiStatus} :any)=> {
+const Message = ({setNoti, setNotiStatus, setClose} :any)=> {
     const [notification, setNotification] = useState(false)
     const [status, setStatus] = useState('')
     const [config, setConfig] = useState(defaultConfig)
@@ -39,7 +39,7 @@ const Message = ({setNoti, setNotiStatus} :any)=> {
     //Handle Submit 
     const handleSubmit = (e: any)=> {
         e.preventDefault();
-        if (email.current.value != (null || '') &&  name.current.value != (null || '') && message.current.value != (null || '')) {
+        if (email.current.value !== (null || '') &&  name.current.value !== (null || '') && message.current.value !== (null || '')) {
         axiosFetchData(config)
     } else {
         alert('Contact form cannot be empty!')
@@ -48,7 +48,8 @@ const Message = ({setNoti, setNotiStatus} :any)=> {
 
     const handleSubmitDesk = (e: any)=> {
         e.preventDefault();
-        if (emailDesk.current.value != (null || '') &&  nameDesk.current.value != (null || '') && messageDesk.current.value != (null || '')) {
+        if (emailDesk.current.value !== (null || '') &&  nameDesk.current.value !== (null || '') && messageDesk.current.value !== (null || '')) {
+        setClose(1)
         setDisableSubmit(true)
         setNoti(true)
         axiosFetchDataDesk(configDesk)

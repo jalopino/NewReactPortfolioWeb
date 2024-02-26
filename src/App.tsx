@@ -11,6 +11,7 @@ import { Element, scroller } from 'react-scroll';
 
 function App() {
   const [notification, setNotification] = useState(false)
+  const [close, setClose] = useState(0)
   const [status, setStatus] = useState('')
   const scrollData = (data: string) => {
     scroller.scrollTo(data, {
@@ -24,7 +25,7 @@ function App() {
   return (
     <div className='App overflow-clip'>
         <Header/>
-        <Nav fn={scrollData} noti={notification} notiStat={status}/>
+        <Nav fn={scrollData} noti={notification} notiStat={status} closeNoti={close}/>
         <div>
           <Element name="about">
             <Home/>
@@ -33,7 +34,7 @@ function App() {
             <Portfolio/>
           </Element>
           <Element name="contact">
-            <Contact noti={setNotification} setStat={setStatus}/>
+            <Contact noti={setNotification} setStat={setStatus} setCloseNoti={setClose}/>
           </Element>
         </div>
         <Footer/>
