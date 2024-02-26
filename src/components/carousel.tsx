@@ -12,21 +12,12 @@ const Carousel = ({photo}: Curbside)=> {
     const [previousPage, setPreviousPage] = useState(page)
     return(
         <div className="relative">
-            <button className={page === 0 ? "hidden" : ""} onClick={()=>{ 
-            page > 0 ? setPage(page - 1) : setPage(photo.length - 1);
-            setPreviousPage(page);
-            setLoading(true);
-            }
-        }><i className="
-            absolute text-white text-2xl transition top-[7rem] left-[1rem] md:top-[15rem]
-            fa fa-arrow-circle-left hover:scale-110 hover:text-black z-2"></i></button>
-            <button className={page === (photo.length - 1) ? "hidden" : ""} onClick={()=>{ 
-            page < (photo.length - 1) ? setPage(page + 1) : setPage(0);
-            setPreviousPage(page);
-            setLoading(true);
-            }
-        } ><i className="absolute text-white text-2xl transition top-[7rem] right-[1rem] md:top-[15rem]
-            fa fa-arrow-circle-right hover:scale-110 hover:text-black z-2"></i></button>
+            <div className={page === 0 ? "hidden" : ""} onClick={()=>{ page > 0 ? setPage(page - 1) : setPage(photo.length - 1); setPreviousPage(page); setLoading(true);}}>
+                <i className="absolute text-white text-2xl transition top-[6rem] left-[.5rem] md:top-[15rem] fa fa-arrow-circle-left hover:scale-110 hover:text-black z-2"></i>
+            </div>
+            <div className={page === (photo.length - 1) ? "hidden" : ""} onClick={()=>{ page < (photo.length - 1) ? setPage(page + 1) : setPage(0); setPreviousPage(page); setLoading(true);}}>
+                <i className="absolute text-white text-2xl transition top-[6rem] right-[.5rem] md:top-[15rem] fa fa-arrow-circle-right hover:scale-110 hover:text-black z-2"></i>
+            </div>
             <div className="flex flex-row mx-auto w-[80%] justify-center items-center gap-[3rem] overflow-hidden">
                 <div className={"clip border-2 w-[25rem] h-[12rem] md:w-[60rem] md:h-[24rem] border-white rounded-2xl bg-white"}>
                     <div className={loading ? "" : "hidden"}>

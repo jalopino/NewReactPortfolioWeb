@@ -14,6 +14,7 @@ import PH from "../assets/philippines.svg"
 import GRAD from "../assets/grad.svg"
 import LAPTOP from "../assets/laptop.png"
 import HERO from "../assets/hero_bg.png"
+import DOTS from "../assets/dotbg.png"
 import "../styles/home.css"
 import { animateScroll as scroll } from 'react-scroll';
 
@@ -160,7 +161,9 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-[3rem] bg-[#606470] to-[#93DEFF] rounded-2xl w-[70%] mx-auto p-[3rem] shadow-2xl">
+                        <div>
+                        </div>
+                        <div className="flex flex-col gap-[3rem] bg-[#606470] to-[#93DEFF] rounded-2xl w-[70%] mx-auto p-[3rem] py-[4rem] shadow-2xl z-10">
                                 <div className="font-[gabarito] font-black text-[#F7F7F7] text-6xl text-center">
                                 What's my story?
                                 </div>

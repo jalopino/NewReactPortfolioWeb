@@ -39,14 +39,22 @@ const Message = ({setNoti, setNotiStatus} :any)=> {
     //Handle Submit 
     const handleSubmit = (e: any)=> {
         e.preventDefault();
+        if (email.current.value != (null || '') &&  name.current.value != (null || '') && message.current.value != (null || '')) {
         axiosFetchData(config)
+    } else {
+        alert('Contact form cannot be empty!')
+        }
     }
 
     const handleSubmitDesk = (e: any)=> {
         e.preventDefault();
+        if (emailDesk.current.value != (null || '') &&  nameDesk.current.value != (null || '') && messageDesk.current.value != (null || '')) {
         setDisableSubmit(true)
         setNoti(true)
         axiosFetchDataDesk(configDesk)
+        } else {
+            alert('Contact form cannot be empty!')
+        }
     }
 
     //Fetch Data
